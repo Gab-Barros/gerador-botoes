@@ -23,16 +23,13 @@
         <label for="fontFamily">Font-Family</label>
         <select name="fontFamily" id="fontFamily" v-model="fontFamily">
           <option disabled value="">Seleciona uma fonte</option>
-          <option value="Arial">Arial</option>
-          <option value="Georgia">Georgia</option>
-          <option value="'Times New Roman'">Times New Roman</option>
+          <option value="'Arial', sans-serif">Arial</option>
+          <option value="Helvetica, sans-serif">Helvetica</option>
+          <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+          <option value="Georgia, serif">Georgia</option>
+          <option value="Times, serif">Times</option>
         </select>
-   
-        <label for="textAlign">Text-align</label>
-        <button id="textAlign" @click="textAlign = 'left'">Left</button>
-        <button id="textAlign" @click="textAlign = 'center'">Center</button>
-        <button id="textAlign" @click="textAlign = 'right'">Right</button>
-   
+    
         <label for="bgColor">Background Color</label>
         <input type="color" name="bgColor" id="bgColor" v-model="bgColor">
    
@@ -53,11 +50,23 @@
    
     <section class="output">
       <div class="outputBtn">
-        <button :style="btn">Teste</button>
+        <button :style="btn">Botão</button>
       </div>
    
       <div class="outputCss">
-        CSS
+        <h2>Copie e cole no seu elemento selecionado no CSS</h2>
+        <pre>
+          seletorElemento {
+            width: {{width}}px;
+            height: {{height}}px;
+            font-size: {{fontSize}}px;
+            font-family: {{fontFamily}};
+            background-color: {{bgColor}};
+            color: {{color}};
+            border-radius: {{borderRadius}}px;
+            border: {{border}}px solid {{borderColor}}
+          }
+        </pre>
       </div>
     </section>
   </div>
@@ -69,8 +78,7 @@
         width: '150',
         height: '55',
         fontSize: '16',
-        fontFamily: '',
-        textAlign: '',
+        fontFamily: 'Arial',
         bgColor: '#FFFFFF',
         color: '#000000',
         borderRadius: '',
@@ -84,11 +92,10 @@
             height: `${this.height}px`,
             fontSize: `${this.fontSize}px`,
             fontFamily: this.fontFamily,
-            textAlign: this.textAlign,
             backgroundColor: this.bgColor,
             color: this.color,
             borderRadius: `${this.borderRadius}px`,
-            border: `${this.border}px solid ${this.borderColor}`,
+            border: `${this.border}px solid ${this.borderColor}`
           }
         }
       }
@@ -103,6 +110,7 @@
   *{
     box-sizing: border-box;
   }
+
   nav{
     width: 300px;
     height: 640px;
@@ -112,6 +120,9 @@
     box-sizing: border-box;
     padding: 15px;
     overflow-y: scroll;
+  }
+  pre{
+    font-size: 1.125rem;
   }
   .output{
     border: 2px solid #69acff;
