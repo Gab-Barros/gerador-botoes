@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Vue JS</title>
+</head>
+<body bgcolor="#edf4ff">
+  <div id="app">
+    <nav>
+      <h1>Configurações</h1>
+      <form>
+        <label for="width">Comprimento (width)</label>
+        <input type="range" name="width" id="width" min="0" max="400">
+   
+        <label for="height">Altura (height)</label>
+        <input type="range" name="height" id="height" min="0" max="200">
+   
+        <label for="fontSize">Font-size</label>
+        <input type="number" name="fontSize" id="fontSize" value="16">
+   
+        <label for="fontFamily">Font-Family</label>
+        <select name="fontFamily" id="fontFamily">
+          <option disabled value="">Seleciona uma fonte</option>
+          <option value="Arial">Arial</option>
+          <option value="Georgia">Georgia</option>
+          <option value="'Times New Roman'">Times New Roman</option>
+        </select>
+   
+        <label for="textAlign">Text-align</label>
+        <button id="textAlign">Left</button>
+        <button id="textAlign">Center</button>
+        <button id="textAlign">Right</button>
+   
+        <label for="bgColor">Background Color</label>
+        <input type="color" name="bgColor" id="bgColor">
+   
+        <label for="color">Color</label>
+        <input type="color" name="color" id="color">
+   
+        <label for="borderRadius">Border Radius</label>
+        <input type="range" name="borderRadius" id="borderRadius" min="0" max="200">
+      </form>
+    </nav>
+   
+    <section class="output">
+      <div>
+        button
+      </div>
+   
+      <div>
+        html
+      </div>
+   
+      <div>
+        CSS
+      </div>
+    </section>
+   </body>
+  </div>
+ 
+
+
+
+<style>
+  nav{
+    width: 300px;
+    height: 640px;
+    border: 2px solid #69acff;
+    border-radius: 4px;
+    background: #cce0ff;
+    box-sizing: border-box;
+    padding: 15px;
+  }
+  .output{
+    border: 2px solid #69acff;
+    border-radius: 4px;
+    padding: 15px;
+    flex: 1;
+    margin-left: 10px;
+    background: #cce0ff;
+  }
+  #app{
+    display: flex;
+  }
+  #fontSize{
+    width: 100px;
+  }
+  #textAlign{
+    background: none;
+    border: 2px solid #222;
+    border-radius: 2px;
+    display: inline-block;
+    width: 60px;
+  }
+  nav h1{
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  label{
+    display:block;
+    margin: 20px 0 5px 0;
+    font-family: Arial, sans-serif;
+  }
+  select, input{
+    background: none;
+    border: 2px solid #222;
+    outline: none;
+  }
+</style>
+</html>
