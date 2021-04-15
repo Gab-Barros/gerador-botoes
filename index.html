@@ -7,22 +7,21 @@
   <script src="./vue.js"></script>
   <title>Vue JS</title>
 </head>
-<body bgcolor="#edf4ff">
+<body>
   <div id="app">
     <nav>
       <h1>Configurações</h1>
-      <form>
         <label for="width">Comprimento (width)</label>
-        <input type="range" name="width" id="width" min="0" max="400">
+        <input type="range" name="width" id="width" min="0" max="400" v-model.number="width">
    
         <label for="height">Altura (height)</label>
-        <input type="range" name="height" id="height" min="0" max="200">
+        <input type="range" name="height" id="height" min="0" max="200" v-model.number="height">
    
         <label for="fontSize">Font-size</label>
-        <input type="number" name="fontSize" id="fontSize" value="16">
+        <input type="number" name="fontSize" id="fontSize" v-model="fontSize">
    
         <label for="fontFamily">Font-Family</label>
-        <select name="fontFamily" id="fontFamily">
+        <select name="fontFamily" id="fontFamily" v-model="fontFamily">
           <option disabled value="">Seleciona uma fonte</option>
           <option value="Arial">Arial</option>
           <option value="Georgia">Georgia</option>
@@ -30,58 +29,76 @@
         </select>
    
         <label for="textAlign">Text-align</label>
-        <button id="textAlign">Left</button>
-        <button id="textAlign">Center</button>
-        <button id="textAlign">Right</button>
+        <button id="textAlign" @click="textAlign = 'left'">Left</button>
+        <button id="textAlign" @click="textAlign = 'center'">Center</button>
+        <button id="textAlign" @click="textAlign = 'right'">Right</button>
    
         <label for="bgColor">Background Color</label>
-        <input type="color" name="bgColor" id="bgColor">
+        <input type="color" name="bgColor" id="bgColor" v-model="bgColor">
    
         <label for="color">Color</label>
-        <input type="color" name="color" id="color">
+        <input type="color" name="color" id="color" v-model="color">
    
         <label for="borderRadius">Border Radius</label>
-        <input type="range" name="borderRadius" id="borderRadius" min="0" max="200">
-      </form>
+        <input type="range" name="borderRadius" id="borderRadius" min="0" max="40" v-model="borderRadius">
+
+        <label for="border">Border</label>
+        <input type="number" name="border" id="border" v-model.number="border" min="0" max="20">
+
+        <label for="borderColor">Border Color</label>
+        <input type="color" name="borderColor" id="borderColor" v-model="borderColor">
+
+        <p>Autor: Gabriel Barros</p>
     </nav>
    
     <section class="output">
-      <div>
-        <button class="btn">Teste</button>
+      <div class="outputBtn">
+        <button :style="btn">Teste</button>
       </div>
    
-      <div>
-        html
-      </div>
-   
-      <div>
+      <div class="outputCss">
         CSS
       </div>
     </section>
-   </body>
   </div>
  
   <script>
     const vm = new Vue({
       el: '#app',
       data:{
-        width: '',
-        height: '',
-        fontSize: '',
+        width: '150',
+        height: '55',
+        fontSize: '16',
         fontFamily: '',
         textAlign: '',
-        bgColor: '',
-        color: '',
+        bgColor: '#FFFFFF',
+        color: '#000000',
         borderRadius: '',
+        border: 0,
+        borderColor: '#000000',
+      },
+      computed:{
+        btn(){
+          return {
+            width: `${this.width}px`,
+            height: `${this.height}px`,
+            fontSize: `${this.fontSize}px`,
+            fontFamily: this.fontFamily,
+            textAlign: this.textAlign,
+            backgroundColor: this.bgColor,
+            color: this.color,
+            borderRadius: `${this.borderRadius}px`,
+            border: `${this.border}px solid ${this.borderColor}`,
+          }
+        }
       }
-    })
+    }
+  )
   </script>
 
 
 <style>
-
-
-
+  
   /* Estilos gerais */
   *{
     box-sizing: border-box;
@@ -94,6 +111,7 @@
     background: #cce0ff;
     box-sizing: border-box;
     padding: 15px;
+    overflow-y: scroll;
   }
   .output{
     border: 2px solid #69acff;
@@ -104,6 +122,9 @@
     background: #cce0ff;
     display: flex;
     flex-direction: column;
+  }
+  .outputCss{
+    flex: 2;
   }
   #app{
     display: flex;
@@ -117,6 +138,10 @@
     border-radius: 2px;
     display: inline-block;
     width: 60px;
+  }
+  p{
+    display:block;
+    margin-top: 40px;
   }
   nav h1{
     text-align: center;
@@ -132,12 +157,14 @@
     border: 2px solid #222;
     outline: none;
   }
-  section * {
-    border: 1px solid red
-  }
+
   section div{
     flex: 1;
     padding: 20px;
+    border: 1px solid #69acff;
+    border-radius: 4px;
+
   }
 </style>
+</body>
 </html>
