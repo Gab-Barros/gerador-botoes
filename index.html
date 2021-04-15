@@ -47,7 +47,7 @@
    
     <section class="output">
       <div>
-        <button>Teste</button>
+        <button class="btn">Teste</button>
       </div>
    
       <div>
@@ -61,10 +61,28 @@
    </body>
   </div>
  
-
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data:{
+        width: '',
+        height: '',
+        fontSize: '',
+        fontFamily: '',
+        textAlign: '',
+        bgColor: '',
+        color: '',
+        borderRadius: '',
+      }
+    })
+  </script>
 
 
 <style>
+
+
+
+  /* Estilos gerais */
   *{
     box-sizing: border-box;
   }
