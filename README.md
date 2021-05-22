@@ -7,6 +7,18 @@
 ## :computer: Sobre o projeto
 Esse app simples gera códigos CSS automaticamente ao personalizar um botão utilizando um pequeno menu onde se pode personalizar o tamanho, largura, cor de background, bordas, tamanho de fonte, dentre outras propriedades. Tudo é reativo graças ao Vue, então você pode ver todas as mudanças acontecerem ao mesmo tempo.
 
+### Features
+É possível personalizar:
+- [x] comprimento (width)
+- [x] altura (height)
+- [x] tamanho de fonte
+- [x] família de fonte
+- [x] cor de background
+- [x] cor da fonte
+- [x] border-radius (arredondamento das bordas)
+- [x] borda
+- [x] cor da borda
+
 ## Rodando o app
 
 ```bash
